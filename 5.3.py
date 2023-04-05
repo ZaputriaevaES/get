@@ -30,11 +30,23 @@ def adc():
     return value
 
 
+def volume(value):
+    if value == 0: GPIO.output(leds, decimal2binary(0))
+    elif 0 < value & value < 27: GPIO.output(leds, decimal2binary(1))
+    elif 27 <= value & value < 54: GPIO.output(leds, decimal2binary(3))
+    elif 54 <= value & value < 81: GPIO.output(leds, decimal2binary(7))
+    elif 81 <= value & value < 108: GPIO.output(leds, decimal2binary(15))
+    elif 108 <= value & value < 135: GPIO.output(leds, decimal2binary(31))
+    elif 135 <= value & value < 162: GPIO.output(leds, decimal2binary(63))
+    elif 162 <= value & value < 189: GPIO.output(leds, decimal2binary(127))
+    else: GPIO.output(leds, 255)
+
 try:
     while True:
         value = adc()
-        signal = decimal2binary(value)
-        GPIO.output(leds, signal)
+        #signal = decimal2binary(value)
+        #GPIO.output(leds, signal)
+        volume(value)
         volt = value/levels * max_volt
         print("IN value = {:^3}, OUT volt = {:.2f}".format(value, volt))
 
