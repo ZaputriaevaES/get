@@ -30,13 +30,13 @@ ax.yaxis.set_minor_locator(ticker.MultipleLocator(0.1))
 ax.set_ylabel("Напряжение, В", size = 20) 
 ax.set_xlabel("Время, с", size = 20) 
 
-ax.set_title('Процесс зарядки и разрядки конденсатора', size = 20, loc = 'center') 
+ax.set_title('Процесс зарядки и разрядки конденсатора', size = 30, loc = 'center') 
 
 ax.grid(which='major', color = 'k')
 ax.minorticks_on() 
 ax.grid(which='minor', color = '0.8', linestyle = ':') 
 
-ax.plot(data_t, data, c ='m', linewidth = 1, label = 'V(t)') 
+ax.plot(data_t, data, c ='g', linewidth = 1, label = 'V(t)') 
 ax.scatter(data_t[0:data.size:20], data[0:data.size:20], marker = 's', c = 'm', s = 10) 
 ax.legend(shadow = False, loc = 'upper right', fontsize = 30) 
 
