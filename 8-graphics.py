@@ -16,11 +16,11 @@ data1 = data.tolist()
 index1 = data1.index(max(data1))
 index2 = data_t[-1] - data_t[index1]
 
-ax.text(18, 2, f'Время зарядки: {data_t[index1]}', fontsize = 20)
-ax.text(18, 1.5, f'Время разрядки: {round(index2, 4)}', fontsize = 20)
+ax.text(20, 1.4, f'Время зарядки: {data_t[index1]}', fontsize = 20)
+ax.text(20, 1.3, f'Время разрядки: {round(index2, 4)}', fontsize = 20)
 
 
-ax.xaxis.set_major_locator(ticker.MultipleLocator(2)) 
+ax.xaxis.set_major_locator(ticker.MultipleLocator(6)) 
 ax.xaxis.set_minor_locator(ticker.MultipleLocator(0.5)) 
 
 
@@ -37,7 +37,7 @@ ax.minorticks_on()
 ax.grid(which='minor', color = '0.8', linestyle = ':') 
 
 ax.plot(data_t, data, c ='g', linewidth = 1, label = 'V(t)') 
-ax.scatter(data_t[0:data.size:20], data[0:data.size:20], marker = 's', c = 'm', s = 10) 
+ax.scatter(data_t[0:data.size:20], data[0:data.size:20], marker = 's', c = 'g', s = 10) 
 ax.legend(shadow = False, loc = 'upper right', fontsize = 30) 
 
 fig.savefig('graph.png')
